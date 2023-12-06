@@ -2,7 +2,7 @@ from functools import reduce
 
 
 def parse() -> [[[int], [int]]]:
-    with open('input.txt') as f:
+    with open('day4/input.txt') as f:
         def parse_line(line):
             return [[int(y) for y in x.split()] for x in line.split(':')[1].split('|')]
 
@@ -32,5 +32,6 @@ def part_two(data: [[[int], [int]]]) -> int:
     return reduce(calc, range(len(data)), 0)
 
 
-print(part_one(parse()))
-print(part_two(parse()))
+if __name__ == '__main__':
+    print(part_one(parse()))
+    print(part_two(parse()))

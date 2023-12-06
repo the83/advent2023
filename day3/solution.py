@@ -1,11 +1,7 @@
 import re
 from functools import reduce
 from numpy import prod
-
-
-def parse():
-    with open('input.txt') as f:
-        return [line.replace('\n', '') for line in f.readlines()]
+from helpers import parse
 
 
 def get_same_row(line: str, span, regex: str):
@@ -65,5 +61,6 @@ def part_two(lines: [str]) -> int:
     return sum(get_main(lines, r'\*', r'\d+', calc))
 
 
-print(part_one(parse()))
-print(part_two(parse()))
+if __name__ == '__main__':
+    print(part_one(parse('day3/input.txt')))
+    print(part_two(parse('day3/input.txt')))

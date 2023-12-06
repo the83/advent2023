@@ -1,10 +1,6 @@
 import re
 from functools import reduce
-
-
-def parse() -> [str]:
-    with open('input.txt') as f:
-        return f.readlines()
+from helpers import parse
 
 
 def part_one(data: [str]) -> int:
@@ -38,5 +34,6 @@ def part_two(data: [str]) -> int:
     return reduce(parse_line, data, 0)
 
 
-print(part_one(parse()))
-print(part_two(parse()))
+if __name__ == '__main__':
+    print(part_one(parse('day1/input.txt')))
+    print(part_two(parse('day1/input.txt')))

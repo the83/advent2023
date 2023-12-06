@@ -1,9 +1,5 @@
 from functools import reduce
-
-
-def parse() -> [str]:
-    with open('input.txt') as f:
-        return [line.replace('\n', '') for line in f.readlines()]
+from helpers import parse
 
 
 def calc_options(total: int, button_time: int, race: [int, int]) -> int:
@@ -26,5 +22,6 @@ def part_two(lines: [str]) -> int:
     return calc_race(1, race)
 
 
-print(part_one(parse()))
-print(part_two(parse()))
+if __name__ == '__main__':
+    print(part_one(parse('day6/input.txt')))
+    print(part_two(parse('day6/input.txt')))

@@ -2,17 +2,13 @@ import re
 from collections import defaultdict
 from functools import reduce, cached_property
 from operator import mul
+from helpers import parse
 
 COLOR_LIMITS = {
     'red': 12,
     'green': 13,
     'blue': 14,
 }
-
-
-def parse():
-    with open('input.txt') as f:
-        return [line.replace('\n', '') for line in f.readlines()]
 
 
 class Game():
@@ -66,9 +62,10 @@ def part_two(games: [Game]) -> int:
 
 
 def build_games() -> [Game]:
-    lines = parse()
+    lines = parse('./day2/input.txt')
     return [Game(line) for line in lines]
 
 
-print(part_one(build_games()))
-print(part_two(build_games()))
+if __name__ == '__main__':
+    print(part_one(build_games()))
+    print(part_two(build_games()))
