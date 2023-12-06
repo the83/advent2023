@@ -10,7 +10,11 @@ make install
 
 ### Running code
 ```
-pipenv run {day}/solution.py
+DAY={day integer} make run
+```
+i.e.
+```
+DAY=2 make run
 ```
 
 ### Running lint and tests

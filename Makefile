@@ -6,3 +6,6 @@ lint:
 
 test:
 	pipenv run pytest
+
+run:
+	pipenv run python day$(DAY)/solution.py
