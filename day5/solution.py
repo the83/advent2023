@@ -1,5 +1,4 @@
 import re
-from collections import defaultdict
 from functools import reduce
 
 
@@ -38,10 +37,10 @@ def build_mappings(lines: [str]) -> [Mapping]:
     name = ''
 
     for idx, line in enumerate(lines):
-        if re.match('\w.*map', line):
+        if re.match(r'\w.*map', line):
             name = line.split()[0]
             sets = []
-        if re.match('^\d', line):
+        if re.match(r'^\d', line):
             sets.append(line)
         if line == '' and name != '' or idx + 1 == len(lines):
             mappings.append(Mapping(name, sets))

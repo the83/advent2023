@@ -55,14 +55,14 @@ def part_one(lines: [str]) -> int:
     def calc(match: str, neighbors: [str]) -> int:
         return int(match) if len(neighbors) > 0 else 0
 
-    return sum(get_main(lines, r'\d+', "[^\s\d\w\.]", calc))
+    return sum(get_main(lines, r'\d+', r'[^\s\d\w\.]', calc))
 
 
 def part_two(lines: [str]) -> int:
     def calc(_match: str, neighbors: [str]) -> int:
         return prod([int(x) for x in neighbors]) if len(neighbors) == 2 else 0
 
-    return sum(get_main(lines, r'\*', '\d+', calc))
+    return sum(get_main(lines, r'\*', r'\d+', calc))
 
 
 print(part_one(parse()))

@@ -9,8 +9,8 @@ def parse() -> [str]:
 
 def part_one(data: [str]) -> int:
     def parse_line(total: int, line: str) -> int:
-        digits = re.findall("\d", line)
-        return total + int(f"{digits[0]}{digits[-1]}")
+        digits = re.findall(r'\d', line)
+        return total + int(f'{digits[0]}{digits[-1]}')
 
     return reduce(parse_line, data, 0)
 
@@ -28,7 +28,7 @@ def part_two(data: [str]) -> int:
         'nine': 9,
     }
 
-    regexes = ['\d'] + [*MAPPING.keys()]
+    regexes = [r'\d'] + [*MAPPING.keys()]
     regex = '(?=(' + '|'.join(regexes) + '))'
 
     def parse_line(total: int, line: str) -> int:
