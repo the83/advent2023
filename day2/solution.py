@@ -53,19 +53,20 @@ class Game():
         return maxes
 
 
-def part_one(games: [Game]) -> int:
-    return reduce(lambda x, y: x + y.number, games, 0)
-
-
-def part_two(games: [Game]) -> int:
-    return reduce(lambda x, y: x + y.powers, games, 0)
-
-
-def build_games() -> [Game]:
-    lines = parse('./day2/input.txt')
+def build_games(lines: [str]) -> [Game]:
     return [Game(line) for line in lines]
 
 
+def part_one(lines: [str]) -> int:
+    games = build_games(lines)
+    return reduce(lambda x, y: x + y.number, games, 0)
+
+
+def part_two(lines: [str]) -> int:
+    games = build_games(lines)
+    return reduce(lambda x, y: x + y.powers, games, 0)
+
+
 if __name__ == '__main__':
-    print(part_one(build_games()))
-    print(part_two(build_games()))
+    print(part_one(parse('./day2/input.txt')))
+    print(part_two(parse('./day2/input.txt')))
