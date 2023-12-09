@@ -71,7 +71,10 @@ def parse_line(line, groups, jokers=False) -> None:
     hand, bet = line.split()
     ranked_hand = [card_ranks.index(x) for x in hand]
     score_string = get_score_string(hand, jokers)
-    groups[score_string] = sorted(groups[score_string] + [[ranked_hand, int(bet)]], key=lambda x: x[0])
+    groups[score_string] = sorted(
+        groups[score_string] +
+            [[ranked_hand, int(bet)]], key=lambda x: x[0]
+    )
 
 
 def get_answer(lines: [str], jokers=False) -> int:
